@@ -25,7 +25,8 @@ LMPM's compiler will produce a actor state machine-transition loop for each atom
 In other words
 - only LMPM's compiler has a ground truth world view
 - each Pytorch worker managed by LMPM runtime only has a local view of the world,
-and has no interests in know the identity of other workers it is conducting collective communication with.
+and has no interests in knowing the identity of other workers it is conducting collective communication with.
+
 LMPM runtime is only responsible for routing messages between workers correctly, guaranteed by the underlying logical clock.
 
 It is worth mentioning that LMPM is **not**:
@@ -34,6 +35,14 @@ It is worth mentioning that LMPM is **not**:
 - designed this way to be easy to use
 
 Instead, LMPM is designed this way to be **correct by construction and abstraction**.
+So even a seasoned AI research might find LMPM to be off-putting at first glance.
+Once the syntax barrier is crossed, you would find LMPM has exactly right separation of concerns between:
+- system state evolvement logic
+- inductive bias definition and enforcement
+- distributed execution
+
+And perfectly heal the pain points in building gigantic AI-like systems and developing an new ML with
+complex yet reasonable inductive bias.
 
 ## Consensual Programming
 Consensual Programming is a programming paradigm in which
