@@ -16,7 +16,7 @@ instead of human-hard-coded state machine.
 
 ## Comparisons to other AI systems
 
-The only fundamental difference between LMPM and precedent ML frameworks and runtimes
+The only fundamental difference between LMPM and precedent ML frameworks, runtimes
 is that:
 
 LMPM is **not** a computation graph framework.
