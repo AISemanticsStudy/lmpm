@@ -22,7 +22,7 @@ You might never heard of "latent message passing" before.
 But once you have seen its elegance, you can't unseen it.
 
 Here is how we represent causal mask in LMPM: position t can only see strictly earlier tokens
-```
+```erlang
 visible Txt[t] <- Txt[0..t-1] when t > 0
 ```
 And that's it.
