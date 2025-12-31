@@ -155,6 +155,7 @@ hard lesson learned from implementing distributed systems, if we want to build a
 
 The resolver is programmable by external programming languages,
 but only as a policy engine over a fixed semantic interface, not as an unrestricted executor.
+If a behavior difference cannot be explained as a resolver policy choice over the same IR, it is a language bug.
 
 ```
 Resolver API
