@@ -103,7 +103,7 @@ rule Schedule:
   emit proposal MaskPlan := SampleTiles(strategy="red-black", epoch=e)
 ```
 
-## LMPM's syntax is designed for AI chatbot as well
+## Being causal, LMPM's syntax is designed for AI chatbot as well
 LMPM source code is designed to be fed to an AI chatbot.
 The take is that having an AI model defined in a super high-level consensual programming language,
 with explicit definitions of inductive bias and system evolvement rules,
@@ -112,6 +112,11 @@ by exploiting AI chatbot exceptional reasoning ability on a very structured and 
 In other words, LMPM's syntax has a **strict lexical causal structure**.
 You can think of it as a frantic cousin of Rust's ownership system,
 but applied to logical clock and sound textual reasoning.
+
+## LMPM debuggable at constraint level
+LMPM runtime tracks the constraint evaluation results at each commit attempt, and report them back to the user.
+This enables the user to debug the model at constraint level instead of at tensor operation level.
+This is a game changer in building AI-like systems with complex inductive bias.
 
 ## Anatomy
 - LMPM frontend: a programming language frontend to express consensual programming semantics. It can be embedded in other programming languages like Python and send the IR to LMPM gateway for compilation and execution. LMPM compiler shipped with a native frontend in Elixir leveraging LISP style meta-programming.
