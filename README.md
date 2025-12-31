@@ -102,6 +102,13 @@ rule Schedule:
   emit proposal MaskPlan := SampleTiles(strategy="red-black", epoch=e)
 ```
 
+## LMPM is designed for AI chatbot as well
+LMPM source code is designed to be fed to an AI chatbot.
+The take is that having an AI model defined in a super high-level consensual programming language,
+with explicit definitions of inductive bias and system evolvement rules,
+would greatly reduce the complexity of the AI model implementation,
+by exploiting AI chatbot exceptional reasoning ability on a very structured and high-level codebase.
+
 ## Anatomy
 - LMPM frontend: a programming language frontend to express consensual programming semantics. It can be embedded in other programming languages like Python and send the IR to LMPM gateway for compilation and execution. LMPM compiler shipped with a native frontend in Elixir leveraging LISP style meta-programming.
 - LCI IR (logical clock indexing intermediate representation): an language agnostic (IR) specific design to express consensual programming semantics with regard to logical clock, including latent message passing, proposals, constraints, and commits(agreements).
