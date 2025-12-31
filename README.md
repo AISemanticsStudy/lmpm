@@ -82,6 +82,8 @@ It is open to implement other backends in the future.
 ## Collective communication in LMPM
 The compiler and runtime of LMPM natively support collective communication patterns including broadcast, scatter, gather, reduce, all-reduce, all-gather, and scatter-gather. Note that in LMPM we try our best to decouple collective communication (worker↔worker / GPU↔GPU) from the control plane (runtime↔worker).
 
-## Compared to PyTorch
+## Comparisons to other AI systems
 
-## Compared to DL runtimes of a static graph
+### Compared to PyTorch
+
+### Compared to DL runtimes of a static graph
