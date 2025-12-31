@@ -4,7 +4,7 @@ LMPM(latent message passing machine) is a programming language and runtime for C
 it is first of of its kind. It was developed after modern deep learning reaching its complexity limits in around 2025.
 
 The primary goal of LMPM is to enable building AI-like systems with fine-grained control in inductive bias while greatly
-clamping the complicity in computation and communication.
+clamping the complicity in manually implement computation and communication.
 
 LMPM is a faithful implementation of the actor model but it operates at latent message passing between latten objects as senders and receivers
 instead of human-hard-coded state machine.
