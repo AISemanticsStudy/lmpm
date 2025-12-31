@@ -19,7 +19,7 @@ To put that in perspective:
 - Consensual Programming says: don’t mutate reality. Reality only changes by agreement.
 
 ## Anatomy
-- LCI IR (logical clock indexing intermediate representation): an language agnostic (IR) specific design to express consensual programming semantics with regard to Logical clock, including latent message passing, proposals, constraints, and commits(agreements).
+- LCI IR (logical clock indexing intermediate representation): an language agnostic (IR) specific design to express consensual programming semantics with regard to logical clock, including latent message passing, proposals, constraints, and commits(agreements).
 - LMPM compiler: compile the IR to PyTorch source code for execution.
 - LMPM runtime: an PyTorch process manager to run compiled LMPM programs with distributed execution support.
 - LMPM gateway: an API server to receive inference requests or IR submissions from other programming languages.
