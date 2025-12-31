@@ -12,7 +12,7 @@ much higher level of abstraction than any other programming languages, and opera
 capacity. With that being said, we don't intend to make LMPM a general-purpose programming language.
 Instead, LMPM is designed to be a domain-specific language for building AI-like systems.
 
-LMPM is a faithful implementation of the actor model but it operates at latent message passing between latten objects as senders and receivers
+LMPM is a faithful implementation of the actor model **minus human-written state machines**. It operates at latent message passing between latten objects as senders and receivers
 instead of human-hard-coded state machine.
 
 ## Comparisons to other AI systems
