@@ -112,6 +112,9 @@ rule Schedule:
 LMPM is conservative about what becomes true.
 It is liberal about what can be attempted.
 
+## LMPM’s syntax is inspired by databases, logic, and actor systems
+LMPM’s syntax comes from treating causality, agreement, and visibility as first-class syntax, borrowing surface forms from databases, logic, and actor systems—but rejecting their execution-centric assumptions.
+
 ## Being causal, LMPM's syntax is designed for AI chatbot as well
 LMPM source code is designed to be fed to an AI chatbot.
 The take is that having an AI model defined in a super high-level consensual programming language,
