@@ -21,10 +21,7 @@ To put that in perspective:
 ## Anatomy
 - LMPM frontend: a programming language frontend to express consensual programming semantics. It can be embedded in other programming languages like Python and send the IR to LMPM gateway for compilation and execution. LMPM compiler shipped with a native frontend in Elixir leveraging LISP style meta-programming.
 - LCI IR (logical clock indexing intermediate representation): an language agnostic (IR) specific design to express consensual programming semantics with regard to logical clock, including latent message passing, proposals, constraints, and commits(agreements).
-- LMPM compiler: compile the IR to PyTorch source code for execution.
-- LMPM runtime: an PyTorch process manager to run compiled LMPM programs with distributed execution support.
-- LMPM gateway: an API server to receive inference requests or IR submissions from other programming languages.
-
-We use Elixir to implement LMPM runtime because of it runs on BEAM which is a robust actor model runtime.
-We use PyTorch to implement LMPM compiler backend because of its rich ecosystem in deep learning.
+- LMPM compiler: compile the IR to PyTorch source code for execution. We use PyTorch to implement LMPM compiler's first backend target because of its rich ecosystem in deep learning.
 It is open to implement other backends in the future.
+- LMPM runtime: an PyTorch process manager to run compiled LMPM programs with distributed execution support. We chose to use Elixir to implement LMPM runtime because of it runs on BEAM which is a robust actor model runtime, which save us a lot of effort from implementing a new actor model runtime.
+- LMPM gateway: an API server to receive inference requests or IR submissions from other programming languages.
