@@ -1,5 +1,9 @@
 # LMPM
 
+## TL;DR
+LMPM is to PyTorch what Kubernetes is to Docker containers.
+
+## What is LMPM?
 LMPM(latent message passing machine) is a programming language and runtime for Consensual Programming. At the moment when it is created,
 it is first of of its kind. It was developed after modern deep learning reaching its complexity limits in around 2025.
 
