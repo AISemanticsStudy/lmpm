@@ -153,6 +153,18 @@ an language agnostic (IR) specific design to express consensual programming sema
 ### LMPM resolver
 hard lesson learned from implementing distributed systems, if we want to build a programming language for AI-like systems, we **must** make resolver a first-class citizen and independent component with single responsibility and well-defined interfaces in the toolchain, not some afterthought optimization pass in the compiler. Resolver guarantees that all latent messages are routed correctly according to the logical clock defined in the IR by resolving all latent message destinations and sources with respect to the logical clock and collective communication patterns defined in the IR. Resolver also guarantees the single responsibility of the compiler being purely a resource addresser and code generator.
 
+The resolver is programmable by external programming languages,
+but only as a policy engine over a fixed semantic interface, not as an unrestricted executor.
+
+```
+Resolver API
+------------
+on_proposals(proposals, log_state) -> routing_plan
+on_conflict(target, competing_proposals) -> resolution
+on_commit(candidate_set) -> commit_decision
+on_clock_event(event) -> ordering_decision
+```
+
 ### LMPM compiler
 compile the IR to PyTorch source code for execution. We use PyTorch to implement LMPM compiler's first backend target because of its rich ecosystem in deep learning.
 It is open to implement other backends in the future.
