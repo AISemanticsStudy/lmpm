@@ -133,10 +133,18 @@ LMPM's mechanics can be categorized into three orthogonal dimensions:
 | **Capacity**  | rule internals                    | heads, width, depth    |
 
 ## Anatomy
-- LMPM frontend: a programming language frontend to express consensual programming semantics. It can be embedded in other programming languages like Python and send the IR to LMPM gateway for compilation and execution. LMPM compiler shipped with a native frontend in Elixir leveraging LISP style meta-programming.
-- LCI IR (logical clock indexing intermediate representation): an language agnostic (IR) specific design to express consensual programming semantics with regard to logical clock, including latent message passing, proposals, constraints, and commits(agreements).
-- LMPM resolver: hard lesson learned from implementing distributed systems, if we want to build a programming language for AI-like systems, we **must** make resolver a first-class citizen and independent component with single responsibility and well-defined interfaces in the toolchain, not some afterthought optimization pass in the compiler. Resolver guarantees that all latent messages are routed correctly according to the logical clock defined in the IR by resolving all latent message destinations and sources with respect to the logical clock and collective communication patterns defined in the IR. Resolver also guarantees the single responsibility of the compiler being purely a resource addresser and code generator.
-- LMPM compiler: compile the IR to PyTorch source code for execution. We use PyTorch to implement LMPM compiler's first backend target because of its rich ecosystem in deep learning.
+
+### LMPM frontend
+a programming language frontend to express consensual programming semantics. It can be embedded in other programming languages like Python and send the IR to LMPM gateway for compilation and execution. LMPM compiler shipped with a native frontend in Elixir leveraging LISP style meta-programming.
+
+### LCI IR (logical clock indexing intermediate representation)
+an language agnostic (IR) specific design to express consensual programming semantics with regard to logical clock, including latent message passing, proposals, constraints, and commits(agreements).
+
+### LMPM resolver
+hard lesson learned from implementing distributed systems, if we want to build a programming language for AI-like systems, we **must** make resolver a first-class citizen and independent component with single responsibility and well-defined interfaces in the toolchain, not some afterthought optimization pass in the compiler. Resolver guarantees that all latent messages are routed correctly according to the logical clock defined in the IR by resolving all latent message destinations and sources with respect to the logical clock and collective communication patterns defined in the IR. Resolver also guarantees the single responsibility of the compiler being purely a resource addresser and code generator.
+
+### LMPM compiler
+compile the IR to PyTorch source code for execution. We use PyTorch to implement LMPM compiler's first backend target because of its rich ecosystem in deep learning.
 It is open to implement other backends in the future.
 - LMPM runtime: an PyTorch process manager to run compiled LMPM programs with distributed execution support. We chose to use Elixir to implement LMPM runtime because of it runs on BEAM which is a robust actor model runtime, which save us a lot of effort from implementing a new actor model runtime.
 - LMPM gateway: an API server to receive inference requests or IR submissions from other programming languages.
