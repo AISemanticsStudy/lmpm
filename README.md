@@ -109,7 +109,8 @@ with explicit definitions of inductive bias and system evolvement rules,
 would greatly reduce the complexity of the AI model implementation,
 by exploiting AI chatbot exceptional reasoning ability on a very structured and high-level codebase.
 In other words, LMPM's syntax has a **strict lexical causal structure**.
-You can think of it as a cousin of Rust's ownership system, but applied to logical clock and latent message passing.
+You can think of it as a frantic cousin of Rust's ownership system,
+but applied to logical clock and sound textual reasoning.
 
 ## Anatomy
 - LMPM frontend: a programming language frontend to express consensual programming semantics. It can be embedded in other programming languages like Python and send the IR to LMPM gateway for compilation and execution. LMPM compiler shipped with a native frontend in Elixir leveraging LISP style meta-programming.
