@@ -108,6 +108,7 @@ The take is that having an AI model defined in a super high-level consensual pro
 with explicit definitions of inductive bias and system evolvement rules,
 would greatly reduce the complexity of the AI model implementation,
 by exploiting AI chatbot exceptional reasoning ability on a very structured and high-level codebase.
+In other words, LMPM's syntax has a strict causal structure.
 
 ## Anatomy
 - LMPM frontend: a programming language frontend to express consensual programming semantics. It can be embedded in other programming languages like Python and send the IR to LMPM gateway for compilation and execution. LMPM compiler shipped with a native frontend in Elixir leveraging LISP style meta-programming.
