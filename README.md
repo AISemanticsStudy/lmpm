@@ -123,6 +123,15 @@ LMPM views BP as computing a specific fixed point.
 BP is one message passing algorithm that solves a constraint system (“chain rule consistency”) efficiently.
 In LMPM can BP is internalized: when the resolver recognizes a pattern (DAG + differentiable ops + desired exactness), it can lower to BP kernels.
 
+## LMPM's three categories of mechanics
+LMPM's mechanics can be categorized into three orthogonal dimensions:
+
+| Category      | Lives in LMPM                     | Examples               |
+| ------------- | --------------------------------- | ---------------------- |
+| **Semantics** | visibility / constraints / commit | masks, topology, locks |
+| **Solver**    | runtime / compiler passes         | LR, BP, optimizer      |
+| **Capacity**  | rule internals                    | heads, width, depth    |
+
 ## Anatomy
 - LMPM frontend: a programming language frontend to express consensual programming semantics. It can be embedded in other programming languages like Python and send the IR to LMPM gateway for compilation and execution. LMPM compiler shipped with a native frontend in Elixir leveraging LISP style meta-programming.
 - LCI IR (logical clock indexing intermediate representation): an language agnostic (IR) specific design to express consensual programming semantics with regard to logical clock, including latent message passing, proposals, constraints, and commits(agreements).
