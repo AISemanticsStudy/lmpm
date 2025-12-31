@@ -1,0 +1,24 @@
+# LMPM
+
+LMPM(latent message passing machine) is a programming language and runtime for Consensual Programming. At the moment when it is created,
+it is first of of its kind. It was developed after modern deep learning reaching its complexity limits in around 2025.
+
+The primary goal of LMPM is to enable building AI-like systems with fine-grained control in inductive bias while greatly
+clamping the complicity in computation and communication.
+
+LMPM is a faithful implementation of the actor model but it operates at latent message passing between latten objects as sender and receivers.
+
+## Consensual Programming
+Consensual Programming is a programming paradigm in which
+system state evolves only through proposals evaluated under explicit constraints and committed by agreement,
+rather than by imperative execution.
+
+To put that in perspective:
+- Functional Programming says: don’t mutate values.
+- Consensual Programming says: don’t mutate reality. Reality only changes by agreement.
+
+## Anatomy
+- LGCL IR (Logical clock intermediate representation): an language agnostic (IR) specific design to express consensual programming semantics with regard to Logical clock, including latent message passing, proposals, constraints, and commits(agreements).
+- LMPM compiler: compile the IR to PyTorch source code for execution.
+- LMPM runtime: an PyTorch process manager to run compiled LMPM programs with distributed execution support.
+- LMPM gateway: an API server to receive inference requests or IR submissions from other programming languages.
