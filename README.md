@@ -144,7 +144,7 @@ LMPM's mechanics can be categorized into three orthogonal dimensions:
 | **Solver**    | runtime / compiler passes         | LR, BP, optimizer      |
 | **Capacity**  | rule internals                    | heads, width, depth    |
 
-## Inductive bias is first-class in LMPM
+## Inductive bias in LMPM
 In a behavior-centric view, inductive bias is the only operator, not operand in the arithmetic-centric view.
 LMPM makes inductive bias explicit, programmable, and debuggable.
 Inductive bias is treated as the real operator of an AI system built with LMPM.
