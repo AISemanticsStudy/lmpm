@@ -25,3 +25,6 @@ To put that in perspective:
 It is open to implement other backends in the future.
 - LMPM runtime: an PyTorch process manager to run compiled LMPM programs with distributed execution support. We chose to use Elixir to implement LMPM runtime because of it runs on BEAM which is a robust actor model runtime, which save us a lot of effort from implementing a new actor model runtime.
 - LMPM gateway: an API server to receive inference requests or IR submissions from other programming languages.
+
+## Collective communication in LMPM
+The compiler and runtime of LMPM natively support collective communication patterns including broadcast, scatter, gather, reduce, all-reduce, all-gather, and scatter-gather. Note that in LMPM we try our best to decouple collective communication (worker↔worker / GPU↔GPU) from the control plane (runtime↔worker).
