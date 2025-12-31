@@ -108,6 +108,10 @@ rule Schedule:
   emit proposal MaskPlan := SampleTiles(strategy="red-black", epoch=e)
 ```
 
+## Design principles of LMPM
+LMPM is conservative about what becomes true.
+It is liberal about what can be attempted.
+
 ## Being causal, LMPM's syntax is designed for AI chatbot as well
 LMPM source code is designed to be fed to an AI chatbot.
 The take is that having an AI model defined in a super high-level consensual programming language,
