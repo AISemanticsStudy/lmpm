@@ -118,6 +118,10 @@ LMPM runtime tracks the constraint evaluation results at each commit attempt, an
 This enables the user to debug the model at constraint level instead of at tensor operation level.
 This is a game changer in building AI-like systems with complex inductive bias.
 
+## There is no `.backward()` in LMPM
+BP is one message passing algorithm that solves a constraint system (“chain rule consistency”) efficiently.
+In LMPM can BP is internalized: when the resolver recognizes a pattern (DAG + differentiable ops + desired exactness), it can lower to BP kernels.
+
 ## Anatomy
 - LMPM frontend: a programming language frontend to express consensual programming semantics. It can be embedded in other programming languages like Python and send the IR to LMPM gateway for compilation and execution. LMPM compiler shipped with a native frontend in Elixir leveraging LISP style meta-programming.
 - LCI IR (logical clock indexing intermediate representation): an language agnostic (IR) specific design to express consensual programming semantics with regard to logical clock, including latent message passing, proposals, constraints, and commits(agreements).
