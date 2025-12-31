@@ -188,3 +188,6 @@ an API server to receive inference requests or IR submissions from other program
 
 ## Collective communication in LMPM
 The compiler and runtime of LMPM natively support collective communication patterns including broadcast, scatter, gather, reduce, all-reduce, all-gather, and scatter-gather. Note that in LMPM we try our best to decouple collective communication (worker↔worker / GPU↔GPU) from the control plane (runtime↔worker).
+
+## Redundancy and elastic join/leave in LMPM
+LMPM naturally supports redundant replicas and elastic join/leave, including during training, because workers only propose and commits are the sole authority. Redundancy increases robustness and flexibility without changing semantics; only the resolver’s agreement policy determines how multiple replicas’ proposals are combined.
