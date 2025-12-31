@@ -14,6 +14,27 @@ Instead, LMPM is designed to be a domain-specific language for building AI-like 
 LMPM is a faithful implementation of the actor model but it operates at latent message passing between latten objects as senders and receivers
 instead of human-hard-coded state machine.
 
+## Comparisons to other AI systems
+
+The only fundamental difference between LMPM and precedent ML frameworks and runtimes
+is that:
+
+LMPM is **not** a computation graph framework.
+
+LMPM's compiler will produce a actor state machine-transition loop for each atomic evolvement area of the whole system.
+In other words
+- only LMPM's compiler has a ground truth world view
+- each Pytorch worker managed by LMPM runtime only has a local view of the world,
+and has no interests in know the identity of other workers it is conducting collective communication with.
+LMPM runtime is only responsible for routing messages between workers correctly, guaranteed by the underlying logical clock.
+
+It is worth mentioning that LMPM is **not**:
+- designed this way to be performant
+- designed this way to be scalable
+- designed this way to be easy to use
+
+Instead, LMPM is designed this way to be **correct by construction and abstraction**.
+
 ## Consensual Programming
 Consensual Programming is a programming paradigm in which
 system state evolves only through proposals evaluated under explicit constraints and committed by agreement,
@@ -82,24 +103,3 @@ It is open to implement other backends in the future.
 
 ## Collective communication in LMPM
 The compiler and runtime of LMPM natively support collective communication patterns including broadcast, scatter, gather, reduce, all-reduce, all-gather, and scatter-gather. Note that in LMPM we try our best to decouple collective communication (worker↔worker / GPU↔GPU) from the control plane (runtime↔worker).
-
-## Comparisons to other AI systems
-
-The only fundamental difference between LMPM and precedent ML frameworks and runtimes
-is that:
-
-LMPM is **not** a computation graph framework.
-
-LMPM's compiler will produce a actor state machine-transition loop for each atomic evolvement area of the whole system.
-In other words
-- only LMPM's compiler has a ground truth world view
-- each Pytorch worker managed by LMPM runtime only has a local view of the world,
-and has no interests in know the identity of other workers it is conducting collective communication with.
-LMPM runtime is only responsible for routing messages between workers correctly, guaranteed by the underlying logical clock.
-
-It is worth mentioning that LMPM is **not**:
-- designed this way to be performant
-- designed this way to be scalable
-- designed this way to be easy to use
-
-Instead, LMPM is designed this way to be **correct by construction and abstraction**.
