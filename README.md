@@ -11,10 +11,8 @@ The primary goal of LMPM is to enable building AI-like systems with **fine-grain
 clamping the complicity and intellectual challenges in manually implementing computation and communication.
 LMPM is revolutionary in the sense that it pushes the inductive bias to a first-class citizen in programming,
 and it is designed not just for current generation of DL but also
-provide the tools for future generations. LMPM might sounds over-promising, and frivolously so, because it operates at a
-much higher level of abstraction than any other programming languages, and operates at such a high volume of data and computation
-capacity. With that being said, we don't intend to make LMPM a general-purpose programming language.
-Instead, LMPM is designed to be a domain-specific language for building AI-like systems.
+provide the tools for future generations. With that being said, we don't intend to make LMPM a general-purpose programming language.
+LMPM is designed to be a domain-specific language tailored for building AI-like systems.
 
 LMPM is a faithful implementation of the actor model **minus human-written state machines**. It operates at latent message passing between latten objects as senders and receivers
 instead of human-hard-coded state machine.
