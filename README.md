@@ -134,6 +134,16 @@ LMPM's mechanics can be categorized into three orthogonal dimensions:
 
 ## Anatomy
 
+We put resolver as a first-class citizen in the toolchain:
+
+| Layer                          | Who controls it                           |
+| ------------------------------ | ----------------------------------------- |
+| LMPM language semantics        | You / the spec                            |
+| LCI IR                         | Ecosystem / standard                      |
+| **Resolver**                   | **Organization / product / research lab** |
+| Backend (PyTorch, XLA, Triton) | Infrastructure                            |
+
+
 ### LMPM frontend
 a programming language frontend to express consensual programming semantics. It can be embedded in other programming languages like Python and send the IR to LMPM gateway for compilation and execution. LMPM compiler shipped with a native frontend in Elixir leveraging LISP style meta-programming.
 
