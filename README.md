@@ -19,6 +19,7 @@ To put that in perspective:
 - Consensual Programming says: don’t mutate reality. Reality only changes by agreement.
 
 ## Anatomy
+- LMPM frontend: a programming language frontend to express consensual programming semantics. It can be embedded in other programming languages like Python and send the IR to LMPM gateway for compilation and execution. LMPM compiler shipped with a native frontend in Elixir leveraging LISP style meta-programming.
 - LCI IR (logical clock indexing intermediate representation): an language agnostic (IR) specific design to express consensual programming semantics with regard to logical clock, including latent message passing, proposals, constraints, and commits(agreements).
 - LMPM compiler: compile the IR to PyTorch source code for execution.
 - LMPM runtime: an PyTorch process manager to run compiled LMPM programs with distributed execution support.
