@@ -54,6 +54,11 @@ To put that in perspective:
 - Functional Programming says: don’t mutate values.
 - Consensual Programming says: don’t mutate reality. Reality only changes by agreement.
 
+In LMPM, everything goes through:
+```sql
+compute → propose → check → agree → commit
+```
+
 ## What is a LMPM program?
 A LMPM program is an (ultra) high-level description of a distributed system in terms of latent message passing.
 But if we have to coin one terminology, we can say that a LMPM program is a DBD-SCS (database-driven sampling control system).
