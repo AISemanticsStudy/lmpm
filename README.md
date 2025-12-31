@@ -19,6 +19,10 @@ Instead, LMPM is designed to be a domain-specific language for building AI-like 
 LMPM is a faithful implementation of the actor model **minus human-written state machines**. It operates at latent message passing between latten objects as senders and receivers
 instead of human-hard-coded state machine.
 
+## Latent Message Passing Vibe
+You might never heard of "latent message passing" before.
+But once you have seen its elegance, you can't unseen it.
+
 ## Comparisons to other AI systems
 
 The only fundamental difference between LMPM and precedent ML frameworks, runtimes
