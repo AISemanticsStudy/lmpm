@@ -144,6 +144,10 @@ LMPM's mechanics can be categorized into three orthogonal dimensions:
 | **Solver**    | runtime / compiler passes         | LR, BP, optimizer      |
 | **Capacity**  | rule internals                    | heads, width, depth    |
 
+## Commit in LMPM
+In LMPM, commit is the sole causal interface between the system and the external world.
+All intermediate states may be observed internally, but have no external effect until committed.
+
 ## Anatomy
 
 We put resolver as a first-class citizen in the toolchain:
