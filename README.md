@@ -151,10 +151,8 @@ a programming language frontend to express consensual programming semantics. It 
 an language agnostic (IR) specific design to express consensual programming semantics with regard to logical clock, including latent message passing, proposals, constraints, and commits(agreements).
 
 ### LMPM resolver
-hard lesson learned from implementing distributed systems, if we want to build a programming language for AI-like systems, we **must** make resolver a first-class citizen and independent component with single responsibility and well-defined interfaces in the toolchain, not some afterthought optimization pass in the compiler. Resolver guarantees that all latent messages are routed correctly according to the logical clock defined in the IR by resolving all latent message destinations and sources with respect to the logical clock and collective communication patterns defined in the IR. Resolver also guarantees the single responsibility of the compiler being purely a resource addresser and code generator.
+In LMPM, the resolver is a first-class, programmable component implemented in external languages. It operates as a policy engine over a fixed intermediate representation, deciding routing, scheduling, clock interpretation, and agreement strategies without altering program semantics. This separation allows different organizations to deploy resolvers optimized for their needs—performance, safety, determinism—while sharing the same language, inductive bias, and model identity.
 
-The resolver is programmable by external programming languages,
-but only as a policy engine over a fixed semantic interface, not as an unrestricted executor.
 If a behavior difference cannot be explained as a resolver policy choice over the same IR, it is a language bug.
 
 ```
