@@ -6,7 +6,7 @@ it is first of of its kind. It was developed after modern deep learning reaching
 The primary goal of LMPM is to enable building AI-like systems with fine-grained control in inductive bias while greatly
 clamping the complicity in computation and communication.
 
-LMPM is a faithful implementation of the actor model but it operates at latent message passing between latten objects as sender and receivers.
+LMPM is a faithful implementation of the actor model but it operates at latent message passing between latten objects as senders and receivers.
 
 ## Consensual Programming
 Consensual Programming is a programming paradigm in which
