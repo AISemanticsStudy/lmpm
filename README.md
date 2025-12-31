@@ -23,3 +23,7 @@ To put that in perspective:
 - LMPM compiler: compile the IR to PyTorch source code for execution.
 - LMPM runtime: an PyTorch process manager to run compiled LMPM programs with distributed execution support.
 - LMPM gateway: an API server to receive inference requests or IR submissions from other programming languages.
+
+We use Elixir to implement LMPM runtime because of it runs on BEAM which is an robust actor model runtime.
+We use PyTorch to implement LMPM compiler backend because of its rich ecosystem in deep learning.
+It is open to implement other backends in the future.
