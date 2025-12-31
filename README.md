@@ -25,6 +25,7 @@ To put that in perspective:
 
 ## What is a LMPM program?
 A LMPM program is a (ultra) high-level description of a distributed system in terms of latent message passing.
+But if we have to coin one terminology, we can say that a LMPM program is a DBD-SCS (database-driven sampling control system).
 Usually a LMPM program consists of:
 - value definitions
 ```
