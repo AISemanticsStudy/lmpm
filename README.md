@@ -85,6 +85,13 @@ The compiler and runtime of LMPM natively support collective communication patte
 
 ## Comparisons to other AI systems
 
-### Compared to PyTorch
+The significant difference between LMPM and precedent ML frameworks and runtimes
+is that:
 
-### Compared to DL runtimes of a static graph
+LMPM is **not** a computation graph framework.
+
+LMPM's compiler will produce a actor state machine-transition loop for each atomic evolvement area of the whole system.
+In other words
+- only LMPM's compiler has a ground truth world view
+- each Pytorch worker managed by LMPM runtime only has a local view of the world,
+and has no interests in know the identity of other workers it is conducting collective communication with.
