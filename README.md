@@ -153,7 +153,7 @@ an language agnostic (IR) specific design to express consensual programming sema
 ### LMPM resolver
 In LMPM, the resolver is a first-class, programmable component implemented in external languages. It operates as a policy engine over a fixed intermediate representation, deciding routing, scheduling, clock interpretation, and agreement strategies without altering program semantics. This separation allows different organizations to deploy resolvers optimized for their needs—performance, safety, determinism—while sharing the same language, inductive bias, and model identity.
 
-If a behavior difference cannot be explained as a resolver policy choice over the same IR, it is a language bug.
+If a behavior difference cannot be explained as a resolver policy choice over the same IR, it is a language **bug**.
 
 ```
 Resolver API
