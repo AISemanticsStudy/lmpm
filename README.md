@@ -144,6 +144,11 @@ LMPM's mechanics can be categorized into three orthogonal dimensions:
 | **Solver**    | runtime / compiler passes         | LR, BP, optimizer      |
 | **Capacity**  | rule internals                    | heads, width, depth    |
 
+## Inductive bias is first-class in LMPM
+LMPM makes inductive bias explicit, programmable, and debuggable.
+Inductive bias is treated as the real operator of an AI system built with LMPM.
+In a behavior-centric view, inductive bias is the only operator, not operand in the arithmetic-centric view.
+
 ## Commit in LMPM
 In LMPM, commit is the sole causal interface between the system and the external world.
 All intermediate states may be observed internally, but have no external effect until committed.
