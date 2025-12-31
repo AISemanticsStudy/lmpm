@@ -45,7 +45,7 @@ Once the syntax barrier is crossed, you would find LMPM has exactly right separa
 And perfectly heal the pain points in building gigantic AI-like systems and developing an new ML with
 complex yet reasonable inductive bias.
 
-## Consensual Programming
+## Consensual Programming introduced by LMPM
 Consensual Programming is a programming paradigm in which
 system state evolves only through proposals evaluated under explicit constraints and committed by agreement,
 rather than by imperative execution.
