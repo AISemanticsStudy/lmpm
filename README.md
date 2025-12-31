@@ -148,7 +148,7 @@ LMPM's mechanics can be categorized into three orthogonal dimensions:
 In a behavior-centric view, inductive bias is the only operator, not operand in the arithmetic-centric view.
 LMPM makes inductive bias explicit, programmable, and debuggable.
 Inductive bias is treated as the real operator of an AI system built with LMPM.
-Compared to other AI systems, one unique aspect of LMPM is that the we preserve the same level of
+Compared to other AI systems hiding inductive bias as operands or parameters, one unique aspect of LMPM is that the we preserve the same level of
 fine-grained control and observability in inductive bias at every level of the stack, from language semantics, IR, resolver, compiler, to runtime.
 
 ## Commit in LMPM
