@@ -191,3 +191,15 @@ The compiler and runtime of LMPM natively support collective communication patte
 
 ## Redundancy and elastic join/leave in LMPM
 LMPM naturally supports redundant replicas and elastic join/leave, including during training, because workers only propose and commits are the sole authority. Redundancy increases robustness and flexibility without changing semantics; only the resolver’s agreement policy determines how multiple replicas’ proposals are combined.
+
+Conceptually:
+```
+IR:
+  value W : Tensor shape Params clock Lamport
+
+Resolver policy:
+  for W[*]:
+    replicas = 4
+    routing = fanout
+    commit_policy = aggregate / select / quorum
+```
