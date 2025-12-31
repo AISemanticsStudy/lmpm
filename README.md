@@ -25,7 +25,7 @@ LMPM's compiler will produce a actor state machine-transition loop for each atom
 In other words
 - only LMPM's resolver or compiler has a ground truth world view
 - each Pytorch worker managed by LMPM runtime only has a local view of the world,
-and has no interests in knowing the identity of other workers it is conducting collective communication with.
+and has no interests in knowing the roles and responsibilities of other workers it is conducting collective communication with.
 
 LMPM runtime is only responsible for routing messages between workers correctly, guaranteed by the underlying logical clock.
 
