@@ -57,7 +57,16 @@ constraint TextPaint:
 constraint Topology:
   forbid read_future(Vid[t,x,y]) priority 1000
 ```
-- commit
+- commit rules definitions to reach agreement
+```
+commit Vid[*] using satisfy(max_constraints_then_score)
+```
+- rule definitions to schedule the system
+```
+rule Schedule:
+  on MaskPlan
+  emit proposal MaskPlan := SampleTiles(strategy="red-black", epoch=e)
+```
 
 ## Anatomy
 - LMPM frontend: a programming language frontend to express consensual programming semantics. It can be embedded in other programming languages like Python and send the IR to LMPM gateway for compilation and execution. LMPM compiler shipped with a native frontend in Elixir leveraging LISP style meta-programming.
