@@ -27,7 +27,7 @@ visible Txt[t] <- Txt[0..t-1] when t > 0
 ```
 And that's it.
 
-You don't need to afford the cognitive load of constructing and reasoning about the different
+You don't need to afford the cognitive load of constructing and reasoning about different
 kinds of attention masks as inductive bias and its implications in your head,
 not anymore.
 
