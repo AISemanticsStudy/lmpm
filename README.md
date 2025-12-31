@@ -119,6 +119,7 @@ This enables the user to debug the model at constraint level instead of at tenso
 This is a game changer in building AI-like systems with complex inductive bias.
 
 ## There is no `.backward()` in LMPM
+LMPM views BP as computing a specific fixed point.
 BP is one message passing algorithm that solves a constraint system (“chain rule consistency”) efficiently.
 In LMPM can BP is internalized: when the resolver recognizes a pattern (DAG + differentiable ops + desired exactness), it can lower to BP kernels.
 
