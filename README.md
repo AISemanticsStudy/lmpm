@@ -4,7 +4,9 @@ LMPM(latent message passing machine) is a programming language and runtime for C
 it is first of of its kind. It was developed after modern deep learning reaching its complexity limits in around 2025.
 
 The primary goal of LMPM is to enable building AI-like systems with fine-grained control in inductive bias while greatly
-clamping the complicity in manually implement computation and communication.
+clamping the complicity in manually implement computation and communication. LMPM is revolutionary in the sense that it pushes
+the inductive bias to a first-class citizen in programming, and it is designed not just for current generation of DL but also
+provide the tools for future generations.
 
 LMPM is a faithful implementation of the actor model but it operates at latent message passing between latten objects as senders and receivers
 instead of human-hard-coded state machine.
@@ -17,6 +19,45 @@ rather than by imperative execution.
 To put that in perspective:
 - Functional Programming says: don’t mutate values.
 - Consensual Programming says: don’t mutate reality. Reality only changes by agreement.
+
+## What is a LMPM program?
+A LMPM program is a (ultra) high-level description of a distributed system in terms of latent message passing.
+Usually a LMPM program consists of:
+- value definitions
+```
+value Txt : Token[BPE] shape Seq(N) clock Lamport
+value Vid : Token[VQ]  shape Grid3D(T, W, H) clock Lamport
+value MaskPlan : Event shape Set() clock Lamport  // 调度日志（CRDT）
+value RuleSet  : Rule shape Set() clock Lamport   // 约束集合（CRDT）
+```
+- visibility definitions
+```
+visible Vid[t,x,y] <- Vid[t,x+dx,y+dy] when (dx,dy) in N8
+visible Vid[t,x,y] <- Vid[t-1,x,y] when t>0
+visible Vid[t,x,y] <- Txt[*]        // 全 caption 可见
+value Coarse : Token[VQ] shape Grid3D(T, W/8, H/8) clock Lamport
+visible Vid[t,x,y] <- Coarse[t, x/8, y/8]
+```
+- rule definitions to generate proposals
+```
+rule LocalGen:
+  on Vid[t,x,y]
+  read {neighbors in N8, prev_frame, Txt[*], Coarse?}
+  emit proposal Vid[t,x,y] := Model(neighbors, prev, txt, coarse)
+  score ModelScore(...)
+```
+- constraint definitions to introduce inductive bias
+```
+constraint HardLock:
+  forbid change(Vid[t, x1..x2, y1..y2]) priority 100
+
+constraint TextPaint:
+  require Vid[t, region("sky")] in Palette("blue-ish") priority 50
+
+constraint Topology:
+  forbid read_future(Vid[t,x,y]) priority 1000
+```
+- commit
 
 ## Anatomy
 - LMPM frontend: a programming language frontend to express consensual programming semantics. It can be embedded in other programming languages like Python and send the IR to LMPM gateway for compilation and execution. LMPM compiler shipped with a native frontend in Elixir leveraging LISP style meta-programming.
