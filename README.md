@@ -178,7 +178,7 @@ We put resolver as a first-class citizen in the toolchain:
 | Layer                          | Who controls it                           |
 | ------------------------------ | ----------------------------------------- |
 | LMPM language semantics        | You / the spec                            |
-| LCI IR                         | Ecosystem / standard                      |
+| Lamport IR                     | Ecosystem / standard                      |
 | **Resolver**                   | **Organization / product / research lab** |
 | Backend (PyTorch, XLA, Triton) | Infrastructure                            |
 
@@ -186,7 +186,7 @@ We put resolver as a first-class citizen in the toolchain:
 ### LMPM frontend
 a programming language frontend to express consensual programming semantics. It can be embedded in other programming languages like Python and send the IR to LMPM gateway for compilation and execution. LMPM compiler shipped with a native frontend in Elixir leveraging LISP style meta-programming.
 
-### LCI IR (logical clock indexing intermediate representation)
+### Lamport IR (logical clock indexing intermediate representation)
 an language agnostic (IR) specific design to express consensual programming semantics with regard to logical clock, including latent message passing, proposals, constraints, and commits(agreements).
 
 ### LMPM resolver
