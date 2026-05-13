@@ -211,3 +211,19 @@ Because the Runtime (Elixir) holds the "Ground Truth" of the logical clock, and 
 
 * **Elasticity:** A Worker can crash and restart. The Runtime simply re-routes the "Compute Proposal" request to a new worker.
 * **Redundancy:** The Resolver can instruct 3 Workers to propose the same `Vid[t]` value. The Runtime waits for a quorum before committing. This is managed purely via Elixir message passing, with zero overhead on the GPU compute path.
+
+## Author
+
+Shenghang Cai ([ORCID: 0009-0003-7397-1203](https://orcid.org/0009-0003-7397-1203)).
+
+## Citation
+
+If you use LMPM, please cite it using the metadata in [CITATION.cff](CITATION.cff):
+
+```bibtex
+@software{cai_lmpm,
+  author = {Cai, Shenghang},
+  title = {LMPM},
+  url = {https://github.com/AISemanticsStudy/lmpm}
+}
+```
