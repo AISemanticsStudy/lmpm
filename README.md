@@ -1,49 +1,46 @@
 # LMPM
 
 ## TL;DR
-LMPM provides PyTorch with distributed programming abstractions similar to how Kubernetes provides container orchestration, but at the computation graph level.
+LMPM provides PyTorch with distributed programming abstractions, much as Kubernetes provides container orchestration, but at the computation-graph level.
 
 ## What is LMPM?
-LMPM(latent message passing machine) is a programming language and runtime for Consensual Programming. At the moment when it is created,
-LMPM is the first system of its kind, developed in response to the growing complexity challenges in modern deep learning systems.
+LMPM (latent message passing machine) is a programming language and runtime for Consensual Programming. At the time of its creation,
+LMPM was the first system of its kind, developed in response to the growing complexity of modern deep learning systems.
 
-The primary goal of LMPM is to enable building AI-like systems with **fine-grained control in inductive bias** while greatly
-clamping the complexity and intellectual challenges in manually implementing computation and communication.
-LMPM is revolutionary in the sense that it pushes the inductive bias to a first-class citizen in programming,
-and it is designed not just for current generation of DL but also
-provide the tools for future generations. With that being said, we don't intend to make LMPM a general-purpose programming language.
+The primary goal of LMPM is to enable the construction of AI-like systems with **fine-grained control over inductive bias** while greatly
+reducing the complexity and cognitive burden of manually implementing computation and communication.
+LMPM is revolutionary in the sense that it makes inductive bias a first-class concept in programming.
+It is designed for the current generation of deep learning while also providing tools for future generations. With that said, we don't intend to make LMPM a general-purpose programming language.
 LMPM is designed to be a domain-specific language tailored for building AI-like systems.
 
 LMPM implements a variant of the actor model where state transitions are derived from constraint satisfaction rather than manually programmed. Actors (latent objects) exchange messages, but their behavior emerges from the consensus rules rather than explicit state machines.
 
 ## Latent message passing vibe
-You might never heard of "latent message passing" before.
-But once you have seen its elegance, you can't unseen it.
+You might never have heard of "latent message passing" before.
+But once you have seen its elegance, you can't unsee it.
 
-Here is how we represent GPT's causal mask in LMPM: position t can only see strictly earlier tokens
+Here is how we represent GPT's causal mask in LMPM: position `t` can only see strictly earlier tokens.
 ```
 visible Txt[t] <- Txt[0..t-1] when t > 0
 ```
 And that's it.
 
-You don't need to afford the cognitive load of constructing and reasoning about different
-kinds of attention masks as inductive bias and its implications in your head,
-not anymore.
+You no longer need to carry the cognitive load of constructing and reasoning about different
+kinds of attention masks as inductive bias, or their implications, in your head.
 
 ## Comparisons to other AI systems
 
-The only fundamental difference between LMPM and precedent ML frameworks, runtimes
+The only fundamental difference between LMPM and previous ML frameworks and runtimes
 is that:
 
 LMPM is **not** a computation graph framework.
 
-LMPM's compiler will produce a actor state machine-transition loop for each atomic evolvement area of the whole system.
-In other words
-- only LMPM's resolver or compiler has a ground truth world view
-- each Pytorch worker managed by LMPM runtime only has a local view of the world,
-and has no interests in knowing the roles and responsibilities of other workers it is conducting collective communication with.
+LMPM's compiler produces an actor state-machine transition loop for each atomic region of state evolution in the whole system.
+In other words:
+- only the LMPM resolver or compiler has a ground-truth view of the world
+- each PyTorch worker managed by the LMPM runtime has only a local view of the world and does not need to know the roles or responsibilities of the other workers in the same collective communication group.
 
-LMPM runtime is only responsible for routing messages between workers correctly, guaranteed by the underlying logical clock.
+The LMPM runtime is responsible only for routing messages correctly between workers, with correctness guaranteed by the underlying logical clock.
 
 While LMPM prioritizes correctness and abstraction, its architecture enables performance through:
 - Decoupled coordination and computation planes
@@ -52,16 +49,16 @@ While LMPM prioritizes correctness and abstraction, its architecture enables per
 
 LMPM is designed to be **correct by construction and abstraction** while maintaining practical performance for distributed AI systems.
 
-So even a seasoned AI research might find LMPM to be off-putting at first glance.
-Once the syntax barrier is crossed, you would find LMPM has exactly right separation of concerns between:
-- system state evolvement logic
+So even a seasoned AI researcher might find LMPM off-putting at first glance.
+Once the syntax barrier is crossed, you will find that LMPM has the right separation of concerns between:
+- system-state evolution logic
 - inductive bias definition and enforcement
 - distributed execution
 
-And perfectly address the pain points in building gigantic AI-like systems and developing an new ML with
-complex yet reasonable inductive bias.
+and that it directly addresses the pain points in building gigantic AI-like systems and developing new ML systems with
+complex yet reasonable inductive biases.
 
-## Consensual Programming introduced by LMPM
+## Consensual Programming, introduced by LMPM
 Consensual Programming is a programming paradigm in which
 system state evolves only through proposals evaluated under explicit constraints and committed by agreement,
 rather than by imperative execution.
@@ -75,10 +72,10 @@ In LMPM, everything goes through:
 compute → propose → check → agree → commit
 ```
 
-## What is a LMPM program?
-A LMPM program is an (ultra) high-level description of a distributed system in terms of latent message passing.
-But if we have to coin one terminology, we can say that a LMPM program is a DBD-SCS (database-driven sampling control system).
-Usually a LMPM program consists of:
+## What is an LMPM program?
+An LMPM program is an (ultra) high-level description of a distributed system in terms of latent message passing.
+If we have to coin a term, we can say that an LMPM program is a DBD-SCS (database-driven sampling control system).
+Usually, an LMPM program consists of:
 - value definitions
 ```
 value Txt : Token[BPE] shape Seq(N) clock Lamport
@@ -113,11 +110,11 @@ constraint TextPaint:
 constraint Topology:
   forbid read_future(Vid[t,x,y]) priority 1000
 ```
-- commit rules definitions to reach agreement
+- commit rule definitions to reach agreement
 ```
 commit Vid[*] using satisfy(max_constraints_then_score)
 ```
-- rule definitions to schedule the system
+- scheduling rule definitions
 ```
 rule Schedule:
   on MaskPlan
@@ -131,23 +128,23 @@ It is liberal about what can be attempted.
 ## LMPM’s syntax is inspired by databases, logic, and actor systems
 LMPM’s syntax comes from treating causality, agreement, and visibility as first-class syntax, borrowing surface forms from databases, logic, and actor systems—but rejecting their execution-centric assumptions.
 
-## Being causal, LMPM's syntax is designed for AI chatbot as well
-LMPM's syntax has a strict lexical causal structure designed to be both human-readable and machine-parsable. This enables AI assistants to reason about and generate LMPM code more effectively than traditional imperative code.
+## Because it is causal, LMPM's syntax is also designed for AI chatbots
+LMPM's syntax has a strict lexical causal structure designed to be both human-readable and machine-parsable. This enables AI assistants to reason about and generate LMPM code more effectively than they can with traditional imperative code.
 
-## LMPM debuggable at constraint level
-LMPM runtime tracks the constraint evaluation results at each commit attempt, and report them back to the user.
-This enables the user to debug the model at constraint level instead of at tensor operation level.
-This is a game changer in building AI-like systems with complex inductive bias.
+## LMPM is debuggable at the constraint level
+The LMPM runtime tracks the constraint evaluation results for each commit attempt and reports them back to the user.
+This enables the user to debug the model at the constraint level instead of at the tensor-operation level.
+This is a game-changer when building AI-like systems with complex inductive bias.
 
 ## LMPM abstracts gradient computation through constraint satisfaction rather than explicit `.backward()` calls
-In LMPM, back propagation (BP) is internalized as a constraint satisfaction problem. When the resolver recognizes a pattern (DAG + differentiable ops + desired exactness), it can lower to optimized BP kernels.
+In LMPM, backpropagation (BP) is internalized as a constraint satisfaction problem. When the resolver recognizes a pattern (DAG + differentiable ops + desired exactness), it can lower it to optimized BP kernels.
 
 ## Inductive bias in LMPM
-In a behavior-centric view, inductive bias is the only operator, not operand in the arithmetic-centric view.
+In a behavior-centric view, inductive bias is the operator itself, not an operand in an arithmetic-centric view.
 LMPM makes inductive bias explicit, programmable, and debuggable.
 Inductive bias is treated as the real operator of an AI system built with LMPM.
-Compared to other AI systems hiding inductive bias as operands or parameters, one unique aspect of LMPM is that the we preserve the same level of
-fine-grained control and observability in inductive bias at every level of the stack, from language semantics, IR, resolver, compiler, to runtime.
+Compared with other AI systems that hide inductive bias as operands or parameters, one unique aspect of LMPM is that we preserve the same level of
+fine-grained control and observability over inductive bias at every level of the stack, from language semantics, IR, resolver, and compiler to runtime.
 
 ## Commit in LMPM
 In LMPM, commit is the sole causal interface between the system and the external world.
@@ -167,13 +164,13 @@ We structure the system by separating the **Logic of Agreement** (Control Plane)
 
 ### LMPM Frontend
 
-A programming language frontend to express consensual programming semantics. It compiles source code into **Lamport IR**, preserving the lexical causal structure defined by the user.
+The LMPM Frontend is a programming language front end for expressing consensual programming semantics. It compiles source code into **Lamport IR**, preserving the lexical causal structure defined by the user.
 
 ### Lamport IR (Logical Clock Intermediate Representation)
 
 A language-agnostic IR designed to express consensual programming semantics. It creates a reified graph of:
 
-* **Latent Messages** (Data flow intent)
+* **Latent Messages** (Data-flow intent)
 * **Proposals** (Tentative state)
 * **Constraints** (Inductive bias)
 * **Commits** (Finalized reality)
@@ -182,7 +179,7 @@ Crucially, Lamport IR describes *what* must happen and *when* (logically), but n
 
 ### LMPM Resolver
 
-The Resolver is the "Policy Engine." It lowers the abstract Lamport IR into concrete execution plans. It decides:
+The Resolver is the policy engine. It lowers the abstract Lamport IR into concrete execution plans. It decides:
 
 * **Topology:** Which worker computes which tile of `Vid[t,x,y]`.
 * **Routing:** Who needs to send data to whom to satisfy `visible` clauses.
@@ -192,7 +189,7 @@ If a behavior difference cannot be explained as a resolver policy choice over th
 
 ### LMPM Runtime (The Control Plane)
 
-We use **Elixir/OTP** (running on BEAM) to implement the Runtime because the Actor model is perfect for managing the lifecycle of distributed agreement.
+We use **Elixir/OTP** (running on BEAM) to implement the Runtime because the actor model is well suited to managing the lifecycle of distributed agreement.
 
 * **Role:** The Runtime is the "Air Traffic Controller." It manages the **Signaling** (Proposals, Commits, Permissions).
 * **Constraint:** The Runtime **never touches tensors**. It only handles metadata (shapes, locations, checksums, logical timestamps).
@@ -203,11 +200,27 @@ The actual computation happens in PyTorch processes.
 
 * **Role:** The Workers are the "Planes." They carry the heavy payload.
 * **Execution:** When the Runtime approves a `Commit`, it instructs Workers to execute the compute kernels.
-* **Transport:** When the Runtime determines a message needs to pass from Worker A to Worker B, it establishes a high-performance side-channel (e.g., NCCL, Shared Memory, NVLink). The data bypasses the Elixir Runtime entirely.
+* **Transport:** When the Runtime determines that a message needs to pass from Worker A to Worker B, it establishes a high-performance side channel (e.g., NCCL, shared memory, NVLink). The data bypasses the Elixir Runtime entirely.
 
 ### Redundancy and Elasticity
 
-Because the Runtime (Elixir) holds the "Ground Truth" of the logical clock, and Workers are stateless functional units relative to the consensus:
+Redundancy and elasticity are possible because the Runtime (Elixir) holds the ground truth of the logical clock, while Workers are stateless functional units relative to the consensus:
 
-* **Elasticity:** A Worker can crash and restart. The Runtime simply re-routes the "Compute Proposal" request to a new worker.
-* **Redundancy:** The Resolver can instruct 3 Workers to propose the same `Vid[t]` value. The Runtime waits for a quorum before committing. This is managed purely via Elixir message passing, with zero overhead on the GPU compute path.
+* **Elasticity:** A Worker can crash and restart. The Runtime simply reroutes the "Compute Proposal" request to a new worker.
+* **Redundancy:** The Resolver can instruct three Workers to propose the same `Vid[t]` value. The Runtime waits for a quorum before committing. This is managed purely via Elixir message passing, with zero overhead on the GPU compute path.
+
+## Author
+
+Shenghang Cai ([ORCID: 0009-0003-7397-1203](https://orcid.org/0009-0003-7397-1203)).
+
+## Citation
+
+If you use LMPM, please cite it using the metadata in [CITATION.cff](CITATION.cff):
+
+```bibtex
+@software{cai_lmpm,
+  author = {Cai, Shenghang},
+  title = {LMPM},
+  url = {https://github.com/AISemanticsStudy/lmpm}
+}
+```

@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use LMPM, please cite it as below."
+authors:
+  - family-names: "Cai"
+    given-names: "Shenghang"
+    orcid: "https://orcid.org/0009-0003-7397-1203"
+title: "LMPM"
+url: "https://github.com/AISemanticsStudy/lmpm"
